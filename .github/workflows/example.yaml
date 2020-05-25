@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        R: [ '3.5.3', '3.6.1' ]
+        R: [ '3.5.3', '3.6.1', ]
     name: R ${{ matrix.R }} sample
     steps:
       - uses: actions/checkout@master
@@ -20,5 +20,5 @@ jobs:
         with:
           r-version: ${{ matrix.R }}
       - run: |
-          Rscript -e 'stop("ERROR")'
-          Rscript -e 'install.packages("httr")'
+          1 + 1
+      - shell: Rscript {0}
