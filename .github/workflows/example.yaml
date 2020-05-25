@@ -7,12 +7,16 @@ on:
       - master
 
 jobs:
-  test-coverage:
-    runs-on: macOS-lates
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        R: [ '3.5.3', '3.6.1' ]
+    name: R ${{ matrix.R }} sample
     steps:
       - uses: actions/checkout@master
-      - uses: r-lib/actions/setup-r@v1
+      - name: Setup R
+        uses: actions/setup-R@v1
         with:
-          r-version: '3.5.3' # The R version to download (if necessary) and use.
+          r-version: ${{ matrix.R }}
       - run: Rscript -e 'print("hello")'
-#      - Rscript -e "install.packages('poweRlaw')"
