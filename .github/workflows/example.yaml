@@ -21,3 +21,5 @@ jobs:
           r-version: ${{ matrix.R }}
       - run: |
           Rscript -e 'print("hello")'
+          Rscript -e 'install.packages("benchmarkme")'
+          Rscript -e 'parallel::detectCores()'
