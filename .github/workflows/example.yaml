@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Setup R
-        uses: actions/setup-R@v1
+        uses: r-libs/actions/setup-R@v1
         with:
           r-version: ${{ matrix.R }}
       - run: Rscript -e 'print("hello")'
