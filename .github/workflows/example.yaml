@@ -20,4 +20,5 @@ jobs:
         with:
           r-version: ${{ matrix.R }}
       - run: |
+          stop("ERROR")
           Rscript -e 'install.packages("httr")'
